@@ -4,15 +4,15 @@
 
         <!-- Tab bar -->
         <ion-tab-bar slot="bottom">
-          <ion-tab-button tab="best" href='best'>
+          <ion-tab-button tab="best" href='best' :selected="$route.name === 'best'">
             <ion-icon :icon="home"></ion-icon>
             <ion-label>Best</ion-label>
           </ion-tab-button>
-          <ion-tab-button tab="new" href='new'>
+          <ion-tab-button tab="new" href='new' :selected="$route.name === 'new'">
             <ion-icon :icon="newspaper"></ion-icon>
             <ion-label>New</ion-label>
           </ion-tab-button>
-          <ion-tab-button tab="more" href='more'>
+          <ion-tab-button tab="more" href='more' :selected="$route.name === 'more'">
             <ion-icon :icon="reorderThree"></ion-icon>
             <ion-label>More</ion-label>
           </ion-tab-button>

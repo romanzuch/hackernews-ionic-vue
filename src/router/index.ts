@@ -18,17 +18,17 @@ const routes: Array<RouteRecordRaw> = [
     children: [
       {
         path: '/best',
-        name: 'Best Stories',
+        name: 'best',
         component: BestStoriesPage
       },
       {
         path: '/new',
-        name: 'New Stories',
+        name: 'new',
         component: NewStoriesPage
       },
       {
         path: '/more',
-        name: 'More',
+        name: 'more',
         component: MorePage
       }
     ]
