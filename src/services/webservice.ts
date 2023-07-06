@@ -28,7 +28,7 @@ class Webservice {
         return id ? `${this.BASE_URL}/${path}/${id}.json` : `${this.BASE_URL}/${path}.json`
     }
 
-    async fetchData(endpoint: Endpoint, id?: number): Promise<void> {
+    async fetchList(endpoint: Endpoint, id?: number): Promise<Array<number>> {
         const url: string = this.buildURL(endpoint, id);
         try {
             const response: AxiosResponse = await axios.get(url, this.OPTIONS);

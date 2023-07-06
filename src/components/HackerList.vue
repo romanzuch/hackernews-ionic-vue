@@ -4,23 +4,21 @@
         IonLabel, 
         IonList 
     } from '@ionic/vue';
+    const props = defineProps({
+        stories: {
+            type: Array<number>,
+            required: true
+        }
+    });
 </script>
 
 <style scoped lang='scss'>
-    .list-container {
-        padding: 0 env(safe-area-inset-left);
-    }
 </style>
 
 <template>
-    <div class='list-container'>
-        <ion-list>
-            <ion-item>
-                <ion-label>1</ion-label>
-            </ion-item>
-            <ion-item>
-                <ion-label>2</ion-label>
-            </ion-item>
-        </ion-list>
-    </div>
+    <ion-list :inset="true">
+        <ion-item v-for="story in props.stories" :key="story">
+            <ion-label>{{ story }}</ion-label>
+        </ion-item>
+    </ion-list>
 </template>

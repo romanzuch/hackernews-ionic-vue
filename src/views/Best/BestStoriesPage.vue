@@ -13,8 +13,11 @@
         </ion-toolbar>
       </ion-header>
 
-      <div id='container'>
-        <hacker-list />
+      <!-- TODO: Add horizontal navigation and navigation links -->
+      <div>
+        <div class='list-container'>
+          <hacker-list :stories="viewComponent.list.value"/>
+        </div>
       </div>
     </ion-content>
   </ion-page>
@@ -23,17 +26,19 @@
 <script setup lang='ts'>
   import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
   import HackerList from '@/components/HackerList.vue';
+  import BestStoriesComponent from '@/views/Best/BestStories.component';
+
+  import { onMounted } from 'vue';
+  const viewComponent = new BestStoriesComponent();
+  onMounted(() => {
+    viewComponent.fetchStories();
+  });
 </script>
 
-<style scoped>
-#container {
-  text-align: center;
-  
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+<style scoped lang="scss">
+
+.list-container {
+  margin-left: env(safe-area-inset-left);
 }
 
 #container strong {
