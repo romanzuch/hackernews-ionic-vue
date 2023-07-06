@@ -1,4 +1,4 @@
-export default interface Story {
+interface Story {
     by: string;
     descendants: number;
     id: number;
@@ -9,3 +9,5 @@ export default interface Story {
     type: string;
     url: string;
 }
+
+export default Story;
