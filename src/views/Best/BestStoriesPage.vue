@@ -1,9 +1,11 @@
 <template>
-    <ion-nav :root="BestStoriesListPage"></ion-nav>
+    <ion-page>
+        <ion-nav :root="BestStoriesListPage"></ion-nav>
+    </ion-page>
 </template>
 
 <script setup lang="ts">
-    import { IonNav } from '@ionic/vue';
+    import { IonPage, IonNav } from '@ionic/vue';
     import BestStoriesListPage from './BestStoriesListPage.vue';
 </script>
 

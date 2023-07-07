@@ -15,6 +15,7 @@
   
         <div id='container'>
           <!-- <hacker-list /> -->
+          <h1>more</h1>
         </div>
       </ion-content>
     </ion-page>

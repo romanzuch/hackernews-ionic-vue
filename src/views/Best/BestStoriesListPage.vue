@@ -12,8 +12,6 @@
           <ion-title size='large'>Best Stories</ion-title>
         </ion-toolbar>
       </ion-header>
-
-      <!-- TODO: Add horizontal navigation and navigation links -->
       <div>
         <div class='list-container'>
           <hacker-list :stories="viewComponent.list"/>
@@ -27,7 +25,6 @@
   import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
   import HackerList from '@/components/HackerList.vue';
   import BestStoriesListComponent from './BestStoriesListPage.component';
-
   import { onMounted } from 'vue';
   const viewComponent = new BestStoriesListComponent();
   onMounted(() => {
