@@ -1,61 +1,12 @@
 <template>
-  <ion-page>
-    <ion-header :translucent="true">
-      <ion-toolbar>
-        <ion-title>Best Stories</ion-title>
-      </ion-toolbar>
-    </ion-header>
-
-    <ion-content :fullscreen="true">
-      <ion-header collapse='condense'>
-        <ion-toolbar>
-          <ion-title size='large'>Best Stories</ion-title>
-        </ion-toolbar>
-      </ion-header>
-
-      <!-- TODO: Add horizontal navigation and navigation links -->
-      <div>
-        <div class='list-container'>
-          <hacker-list :stories="viewComponent.list.value"/>
-        </div>
-      </div>
-    </ion-content>
-  </ion-page>
+    <ion-nav :root="BestStoriesListPage"></ion-nav>
 </template>
 
-<script setup lang='ts'>
-  import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
-  import HackerList from '@/components/HackerList.vue';
-  import BestStoriesComponent from '@/views/Best/BestStories.component';
-
-  import { onMounted } from 'vue';
-  const viewComponent = new BestStoriesComponent();
-  onMounted(() => {
-    viewComponent.fetchStories();
-  });
+<script setup lang="ts">
+    import { IonNav } from '@ionic/vue';
+    import BestStoriesListPage from './BestStoriesListPage.vue';
 </script>
 
 <style scoped lang="scss">
 
-.list-container {
-  margin-left: env(safe-area-inset-left);
-}
-
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
-}
-
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-  
-  color: #8c8c8c;
-  
-  margin: 0;
-}
-
-#container a {
-  text-decoration: none;
-}
 </style>
