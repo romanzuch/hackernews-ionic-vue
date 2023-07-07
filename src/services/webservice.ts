@@ -1,5 +1,6 @@
 import axios, { AxiosResponse } from 'axios';
 import Endpoint from '@/models/Endpoint';
+import Story from '@/models/Story';
 
 class Webservice {
 
@@ -28,7 +29,7 @@ class Webservice {
         return id ? `${this.BASE_URL}/${path}/${id}.json` : `${this.BASE_URL}/${path}.json`
     }
 
-    async fetchData(endpoint: Endpoint, id?: number): Promise<void> {
+    async fetchList(endpoint: Endpoint, id?: number): Promise<number[]> {
         const url: string = this.buildURL(endpoint, id);
         try {
             const response: AxiosResponse = await axios.get(url, this.OPTIONS);
@@ -38,6 +39,33 @@ class Webservice {
             console.error('Error fetching data: ', error);
             throw error;
         }
+    }
+
+    async fetchItem(id: number): Promise<Story> {
+        const url: string = this.buildURL(Endpoint.item, id);
+        try {
+            const response: AxiosResponse = await axios.get(url, this.OPTIONS);
+            return response.data as Story;
+        } catch (error) {
+            console.error('Error fetching the story: ', error);
+            throw error;
+        }
+    }
+
+    async fetchItems(ids: number[]): Promise<Story[]> {
+        var stories: Story[] = [];
+        for (let id of ids) {
+            const url: string = this.buildURL(Endpoint.item, id);
+            try {
+                const response: AxiosResponse = await axios.get(url, this.OPTIONS);
+                console.info(`Adding element to the list ${response.data}`);
+                stories.push(response.data as Story);
+            } catch (error) {
+                console.error('Error fetching the story: ', error);
+                throw error;
+            }
+        }
+        return stories;
     }
 }
 

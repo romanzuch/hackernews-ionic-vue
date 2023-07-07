@@ -2,9 +2,9 @@ import { createRouter, createWebHistory } from '@ionic/vue-router';
 import { RouteRecordRaw } from 'vue-router';
 
 // Component Import
-import BestStoriesPage from '@/views/Best/BestStoriesPage.vue';
-import NewStoriesPage from '@/views/New/NewStoriesPage.vue';
-import MorePage from '@/views/More/MorePage.vue';
+import BestStoriesPage from '@/views/best/BestStoriesPage.vue';
+import NewStoriesPage from '@/views/new/NewStoriesPage.vue';
+import MorePage from '@/views/more/MorePage.vue';
 import TabBar from '@/components/TabBar/TabBar.vue';
 
 const routes: Array<RouteRecordRaw> = [
