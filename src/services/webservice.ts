@@ -52,6 +52,17 @@ class Webservice {
         }
     }
 
+    async fetchComment(id: number): Promise<Comment> {
+        const url: string = this.buildURL(Endpoint.item, id);
+        try {
+            const response: AxiosResponse = await axios.get(url, this.OPTIONS);
+            return response.data as Comment;
+        } catch (error) {
+            console.error('Error fetching the comment: ', error);
+            throw error;
+        }
+    }
+
     async fetchItems(ids: number[]): Promise<Story[]> {
         var stories: Story[] = [];
         for (let id of ids) {

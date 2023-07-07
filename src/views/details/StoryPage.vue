@@ -18,12 +18,15 @@
         <div class="story-comments">
             <div class="story-comments-header">
                 <ion-label class="story-comments-title">Comments</ion-label>
-                <ion-label class="story-comments-count">{{ props.story.kids.length }}</ion-label>   
+                <ion-label class="story-comments-count">{{ props.story.kids.length }}</ion-label> 
+                <ion-button :onclick="viewmodel.toggleCommentSection">
+                    <ion-icon :icon="chevronDown"/>  
+                </ion-button>
             </div>
-            <div class="story-comments-list" >
-                <div class="story-comment" v-for="comment in props.story.kids" :key="props.story.id">
-                    <ion-label >{{ comment }}</ion-label>
-                    <ion-icon :icon="chevronDown" v-if="true"/>
+            <div class="story-comments-list" :v-if="viewmodel.commentSectionIsToggled">
+                <div class="story-comment" v-for="comment in viewmodel.list" :key="props.story.id">
+                    <ion-label >{{ comment.text }}</ion-label>
+                    <ion-icon :icon="chevronDown"/>
                 </div>
             </div>
         </div>
@@ -31,16 +34,22 @@
 </template>
 
 <script setup lang="ts">
-    import { IonHeader, IonTitle, IonToolbar, IonContent, IonButtons, IonBackButton } from '@ionic/vue';
+    import { IonHeader, IonTitle, IonToolbar, IonContent, IonButtons, IonBackButton, IonButton } from '@ionic/vue';
     import { IonLabel } from '@ionic/vue';
     import { IonIcon } from '@ionic/vue';
     import { chevronDown, chevronUp } from 'ionicons/icons';
+    import { onMounted } from 'vue';
     import Story from '@/models/Story';
+    import StoryViewModel from './StoryViewModel';
+    const viewmodel = new StoryViewModel();
     const props = defineProps({
         story: {
             type: Object as () => Story,
             required: true
         }
+    });
+    onMounted(() => {
+        viewmodel.fetchComments(props.story.kids);
     });
 </script>
 
@@ -91,4 +100,4 @@
 .story-comment ion-icon {
     color: gray;
 }
-</style>
+</style>./StoryViewModel.ts
