@@ -1,58 +1,14 @@
 <template>
     <ion-page>
-      <ion-header :translucent="true">
-        <ion-toolbar>
-          <ion-title>New Stories</ion-title>
-        </ion-toolbar>
-      </ion-header>
-  
-      <ion-content :fullscreen="true">
-        <ion-header collapse='condense'>
-          <ion-toolbar>
-            <ion-title size='large'>New Stories</ion-title>
-          </ion-toolbar>
-        </ion-header>
-  
-        <div id='container'>
-          <!-- <hacker-list /> -->
-          <h1>new</h1>
-        </div>
-      </ion-content>
+        <ion-nav :root="NewStoriesListPage"></ion-nav>
     </ion-page>
 </template>
-  
-<script setup lang='ts'>
-  import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
-  import HackerList from '@/components/HackerList.vue';
+
+<script setup lang="ts">
+    import { IonPage, IonNav } from '@ionic/vue';
+    import NewStoriesListPage from './NewStoriesListPage.vue';
 </script>
-  
-<style scoped>
-#container {
-  text-align: center;
-  
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-}
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
-}
+<style scoped lang="scss">
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-  
-  color: #8c8c8c;
-  
-  margin: 0;
-}
-
-#container a {
-  text-decoration: none;
-}
 </style>
-  

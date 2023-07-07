@@ -8,7 +8,6 @@
         </ion-toolbar>
     </ion-header>
     <ion-content class="ion-padding">
-        <p class="story-title-header">Title</p>
         <h1 class="story-title"> {{  story.title }}</h1>
         <a :href="story.url" class="story-link">{{ story.url }}</a>
     </ion-content>
