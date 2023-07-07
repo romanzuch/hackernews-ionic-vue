@@ -16,7 +16,7 @@
       <!-- TODO: Add horizontal navigation and navigation links -->
       <div>
         <div class='list-container'>
-          <hacker-list :stories="viewComponent.list.value"/>
+          <hacker-list :stories="viewComponent.list"/>
         </div>
       </div>
     </ion-content>
