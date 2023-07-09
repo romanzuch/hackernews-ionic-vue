@@ -1,0 +1,18 @@
+.story-comment-footer {
+    margin-top: 0.5rem;
+}
+
+.story-comment-extended {
+    margin: 1rem 0rem 1rem 1rem;
+}
+.story-comment-footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.story-comment-footer-extend {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
