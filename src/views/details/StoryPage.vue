@@ -17,16 +17,25 @@
         </div>
         <div class="story-comments">
             <div class="story-comments-header">
-                <ion-label class="story-comments-title">Comments</ion-label>
-                <ion-label class="story-comments-count">{{ props.story.kids.length }}</ion-label> 
-                <ion-button :onclick="viewmodel.toggleCommentSection">
-                    <ion-icon :icon="chevronDown"/>  
-                </ion-button>
+                <ion-label class="story-comments-title"> Comments</ion-label>
+                <ion-icon 
+                    :icon="viewmodel.getCommentSectionIsToggled() ? chevronUp : chevronDown" 
+                    :onclick="() => { viewmodel.toggleCommentSection() }"
+                />
             </div>
-            <div class="story-comments-list" :v-if="viewmodel.commentSectionIsToggled">
-                <div class="story-comment" v-for="comment in viewmodel.list" :key="props.story.id">
-                    <ion-label >{{ comment.text }}</ion-label>
-                    <ion-icon :icon="chevronDown"/>
+            <div 
+                class="story-comments-list" 
+                v-if="viewmodel.getCommentSectionIsToggled()"
+            >
+                <div 
+                    class="story-comment" 
+                    v-for="comment in viewmodel.list" :key="props.story.id"
+                >
+                    <ion-label v-html="comment.text" />
+                    <div class="story-comment-header">
+                        <ion-label v-html="comment.by" />
+                        <ion-icon :icon="chevronDown"/>
+                    </div>
                 </div>
             </div>
         </div>
@@ -75,12 +84,9 @@
     -webkit-backdrop-filter: blur(5px);
     border: 1px solid rgba(255, 255, 255, 0.13); */
 }
+
 .story-comments-title {
     font-weight: bold;
-}
-
-.story-comments-count {
-    font-size: 0.8rem;
 }
 
 .story-comments-list {
@@ -93,8 +99,20 @@
     margin-bottom: 12px;
     font-size: 0.8rem;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
+    max-width: 100%;
+    width: 100%;
+}
+
+.story-comment-header {
+    display: flex;
+    flex-direction: row;
+    margin-top: 0.5rem;
+}
+
+.story-comment ion-label {
+    width: 100%;
 }
 
 .story-comment ion-icon {

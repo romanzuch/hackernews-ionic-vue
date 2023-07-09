@@ -3,7 +3,7 @@ import { reactive, ref } from 'vue';
 
 class StoryViewModel {
     public list = reactive<Comment[]>([]);
-    public commentSectionIsToggled = ref<Boolean>(false); // this doesn't work
+    private commentSectionIsToggled = ref<Boolean>(false);
 
     async fetchComments(idList: number[]) {
         try {
@@ -13,12 +13,16 @@ class StoryViewModel {
               this.list.push(comment);
             }
           } catch (error) {
-            console.error('Fehler beim Abrufen der Geschichten:', error);
+            console.error('Fehler beim Abrufen der Kommentare:', error);
           }
     }
 
     toggleCommentSection() {
-      console.info(`Current value: ${this.commentSectionIsToggled}`); // this doesn't work
+      this.commentSectionIsToggled.value = !this.commentSectionIsToggled.value;
+    }
+
+    getCommentSectionIsToggled(): Boolean {
+      return this.commentSectionIsToggled.value;
     }
 }
 
