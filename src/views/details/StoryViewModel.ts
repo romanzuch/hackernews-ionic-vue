@@ -5,6 +5,7 @@ import { reactive, ref } from 'vue';
 class StoryViewModel {
     public list = reactive<Comment[]>([]);
     private commentSectionIsToggled = ref<Boolean>(false);
+    private extendedCommentSectionIsToggled = ref<Boolean>(false);
 
     async fetchComments(idList: number[]) {
         try {
@@ -24,6 +25,14 @@ class StoryViewModel {
 
     getCommentSectionIsToggled(): Boolean {
       return this.commentSectionIsToggled.value;
+    }
+
+    toggleExtendedCommentSection() {
+      this.extendedCommentSectionIsToggled.value = !this.extendedCommentSectionIsToggled.value;
+    }
+
+    getExtendedCommentSectionIsToggled(): Boolean {
+      return this.extendedCommentSectionIsToggled.value;
     }
 }
 

@@ -31,15 +31,9 @@
                     class="story-comment" 
                     v-for="comment in viewmodel.list" :key="props.story.id"
                 >
-                    <ion-label v-html="comment.text" />
-                    <div class="story-comment-footer">
-                        <ion-label v-html="comment.by" />
-                        <div class="story-comment-footer-extend" v-if="comment.kids && comment.kids.length > 0">
-                            <ion-label>{{ `${comment.kids.length}` }}</ion-label>
-                            <ion-icon :icon="chevronDown"/>
-                        </div>
-                    </div>
-                    <!-- TODO: hier kommen noch mehr kommentare hin -->
+                    <CommentView 
+                        :item="comment" 
+                    />
                 </div>
             </div>
         </div>
@@ -67,64 +61,5 @@
 </script>
 
 <style scoped lang="scss">
-.story-header {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 2rem;
-}
-.story-link {
-    font-size: 0.8rem;
-}
-
-.story-comments-header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    /* padding: 8px 12px;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 8px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    border: 1px solid rgba(255, 255, 255, 0.13); */
-}
-
-.story-comments-title {
-    font-weight: bold;
-}
-
-.story-comments-list {
-    padding: 1rem 0;
-}
-
-.story-comment {
-    padding: 8px 12px;
-    border-bottom: 1px solid gray;
-    margin-bottom: 12px;
-    font-size: 0.8rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    max-width: 100%;
-    width: 100%;
-}
-
-.story-comment-footer {
-    display: flex;
-    flex-direction: row;
-    margin-top: 0.5rem;
-}
-
-.story-comment-footer-extend {
-    display: flex;
-    flex-direction: row;
-}
-
-.story-comment ion-label {
-    width: 100%;
-}
-
-.story-comment ion-icon {
-    color: gray;
-}
+    @import './StoryPage.scss';
 </style>./StoryViewModel.ts
