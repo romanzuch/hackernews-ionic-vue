@@ -1,4 +1,5 @@
 import Webservice from '@/services/webservice';
+import Comment from '@/models/Comment';
 import { reactive, ref } from 'vue';
 
 class StoryViewModel {
