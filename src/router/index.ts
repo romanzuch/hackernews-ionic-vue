@@ -5,11 +5,12 @@ import { RouteRecordRaw } from 'vue-router';
 import BestStoriesPage from '@/views/best/BestStoriesPage.vue';
 import NewStoriesPage from '@/views/new/NewStoriesPage.vue';
 import MorePage from '@/views/more/MorePage.vue';
-import TabBar from '@/components/TabBar/TabBar.vue';
+import TabBar from '@/components/tabbar/TabBar.vue';
 
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
+    name: 'home',
     redirect: '/best'
   },
   {
