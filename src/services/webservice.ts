@@ -1,6 +1,7 @@
 import axios, { AxiosResponse } from 'axios';
 import Endpoint from '@/models/Endpoint';
 import Story from '@/models/Story';
+import Comment from '@/models/Comment';
 
 class Webservice {
 
