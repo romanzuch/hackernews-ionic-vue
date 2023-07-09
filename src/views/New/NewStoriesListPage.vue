@@ -14,7 +14,7 @@
       </ion-header>
       <div>
         <div class='list-container'>
-          <hacker-list :stories="viewComponent.list"/>
+          <hacker-list :stories="viewModel.list"/>
         </div>
       </div>
     </ion-content>
@@ -24,11 +24,12 @@
 <script setup lang='ts'>
   import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
   import HackerList from '@/components/HackerList.vue';
-  import NewStoriesListComponent from './NewStoriesListPage.component';
+  import StoriesViewModel from '@/utils/StoriesViewModel';
   import { onMounted } from 'vue';
-  const viewComponent = new NewStoriesListComponent();
+  import Endpoint from '@/models/Endpoint';
+  const viewModel = new StoriesViewModel(Endpoint.new);
   onMounted(() => {
-    viewComponent.fetchStories();
+    viewModel.fetchStories();
   });
 </script>
 

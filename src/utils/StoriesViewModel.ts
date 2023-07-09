@@ -3,12 +3,18 @@ import Endpoint from '@/models/Endpoint';
 import Story from '@/models/Story';
 import { reactive } from 'vue';
 
-class BestStoriesComponent {
+class StoriesViewModel {
+
     public list = reactive<Story[]>([]);
+    private endpoint: Endpoint;
+
+    constructor(endpoint: Endpoint) {
+      this.endpoint = endpoint;
+    }
     async fetchStories() {
         try {
             const webservice = new Webservice();
-            const idList = await webservice.fetchList(Endpoint.best);
+            const idList = await webservice.fetchList(this.endpoint);
             for (const id of idList) {
               const story = await webservice.fetchItem(id);
               this.list.push(story);
@@ -19,4 +25,4 @@ class BestStoriesComponent {
     }
 }
 
-export default BestStoriesComponent;
+export default StoriesViewModel;
