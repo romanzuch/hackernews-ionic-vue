@@ -10,7 +10,7 @@
     <ion-content class="ion-padding">
         <!-- TODO: add a <ion-refresher> here -->
         <div class="story-header">
-            <h1 class="story-title"> {{  story.title }}</h1>
+            <h1 class="story-title" v-html="story.title"></h1> 
             <div class="story-link-container">
                 <a :href="story.url" class="story-link">{{ story.url }}</a>
             </div>
@@ -32,10 +32,14 @@
                     v-for="comment in viewmodel.list" :key="props.story.id"
                 >
                     <ion-label v-html="comment.text" />
-                    <div class="story-comment-header">
+                    <div class="story-comment-footer">
                         <ion-label v-html="comment.by" />
-                        <ion-icon :icon="chevronDown"/>
+                        <div class="story-comment-footer-extend" v-if="comment.kids && comment.kids.length > 0">
+                            <ion-label>{{ `${comment.kids.length}` }}</ion-label>
+                            <ion-icon :icon="chevronDown"/>
+                        </div>
                     </div>
+                    <!-- TODO: hier kommen noch mehr kommentare hin -->
                 </div>
             </div>
         </div>
@@ -105,10 +109,15 @@
     width: 100%;
 }
 
-.story-comment-header {
+.story-comment-footer {
     display: flex;
     flex-direction: row;
     margin-top: 0.5rem;
+}
+
+.story-comment-footer-extend {
+    display: flex;
+    flex-direction: row;
 }
 
 .story-comment ion-label {
