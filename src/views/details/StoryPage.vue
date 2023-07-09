@@ -17,15 +17,16 @@
         </div>
         <div class="story-comments">
             <div class="story-comments-header">
-                <ion-label class="story-comments-title"> Comments</ion-label>
+                <ion-label class="story-comments-title">{{ viewmodel.list.length > 0 ? "Comments" : "No comments" }}</ion-label>
                 <ion-icon 
                     :icon="viewmodel.getCommentSectionIsToggled() ? chevronUp : chevronDown" 
                     :onclick="() => { viewmodel.toggleCommentSection() }"
+                    v-if="viewmodel.list.length > 0"
                 />
             </div>
             <div 
                 class="story-comments-list" 
-                v-if="viewmodel.getCommentSectionIsToggled()"
+                v-if="viewmodel.list.length > 0 && viewmodel.getCommentSectionIsToggled()"
             >
                 <div 
                     class="story-comment" 

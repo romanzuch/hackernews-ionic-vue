@@ -15,9 +15,11 @@ class StoriesViewModel {
         try {
             const webservice = new Webservice();
             const idList = await webservice.fetchList(this.endpoint);
-            for (const id of idList) {
-              const story = await webservice.fetchItem(id);
-              this.list.push(story);
+            if (idList.length > 0) {
+              for (const id of idList) {
+                const story = await webservice.fetchItem(id);
+                this.list.push(story);
+              }
             }
           } catch (error) {
             console.error('Fehler beim Abrufen der Geschichten:', error);

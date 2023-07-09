@@ -58,3 +58,10 @@
 .story-comment ion-icon {
     color: gray;
 }
+
+.story-comments-empty {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+  }

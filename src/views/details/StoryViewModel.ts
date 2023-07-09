@@ -10,9 +10,11 @@ class StoryViewModel {
     async fetchComments(idList: number[]) {
         try {
             const webservice = new Webservice();
-            for (const id of idList) {
-              const comment = await webservice.fetchComment(id);
-              this.list.push(comment);
+            if (idList.length > 0) {
+              for (const id of idList) {
+                const comment = await webservice.fetchComment(id);
+                this.list.push(comment);
+              }
             }
           } catch (error) {
             console.error('Fehler beim Abrufen der Kommentare:', error);
