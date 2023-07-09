@@ -8,28 +8,58 @@
         </ion-toolbar>
     </ion-header>
     <ion-content class="ion-padding">
-        <h1 class="story-title"> {{  story.title }}</h1>
-        <a :href="story.url" class="story-link">{{ story.url }}</a>
+        <!-- TODO: add a <ion-refresher> here -->
+        <div class="story-header">
+            <h1 class="story-title" v-html="story.title"></h1> 
+            <div class="story-link-container">
+                <a :href="story.url" class="story-link">{{ story.url }}</a>
+            </div>
+        </div>
+        <div class="story-comments">
+            <div class="story-comments-header">
+                <ion-label class="story-comments-title"> Comments</ion-label>
+                <ion-icon 
+                    :icon="viewmodel.getCommentSectionIsToggled() ? chevronUp : chevronDown" 
+                    :onclick="() => { viewmodel.toggleCommentSection() }"
+                />
+            </div>
+            <div 
+                class="story-comments-list" 
+                v-if="viewmodel.getCommentSectionIsToggled()"
+            >
+                <div 
+                    class="story-comment" 
+                    v-for="comment in viewmodel.list" :key="props.story.id"
+                >
+                    <CommentView 
+                        :item="comment" 
+                    />
+                </div>
+            </div>
+        </div>
     </ion-content>
 </template>
 
 <script setup lang="ts">
-    import { IonHeader, IonTitle, IonToolbar, IonContent, IonButtons, IonBackButton } from '@ionic/vue';
+    import { IonHeader, IonTitle, IonToolbar, IonContent, IonButtons, IonBackButton, IonButton } from '@ionic/vue';
+    import { IonLabel } from '@ionic/vue';
+    import { IonIcon } from '@ionic/vue';
+    import { chevronDown, chevronUp } from 'ionicons/icons';
+    import { onMounted } from 'vue';
     import Story from '@/models/Story';
+    import StoryViewModel from './StoryViewModel';
+    const viewmodel = new StoryViewModel();
     const props = defineProps({
         story: {
             type: Object as () => Story,
             required: true
         }
     });
+    onMounted(() => {
+        viewmodel.fetchComments(props.story.kids);
+    });
 </script>
 
 <style scoped lang="scss">
-.story-title-header {
-    margin-bottom: -16px;
-    font-size: 0.8rem;
-}
-.story-link {
-    font-size: 0.8rem;
-}
-</style>
+    @import './StoryPage.scss';
+</style>./StoryViewModel.ts

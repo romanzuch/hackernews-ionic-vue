@@ -1,6 +1,7 @@
 import axios, { AxiosResponse } from 'axios';
 import Endpoint from '@/models/Endpoint';
 import Story from '@/models/Story';
+import Comment from '@/models/Comment';
 
 class Webservice {
 
@@ -48,6 +49,17 @@ class Webservice {
             return response.data as Story;
         } catch (error) {
             console.error('Error fetching the story: ', error);
+            throw error;
+        }
+    }
+
+    async fetchComment(id: number): Promise<Comment> {
+        const url: string = this.buildURL(Endpoint.item, id);
+        try {
+            const response: AxiosResponse = await axios.get(url, this.OPTIONS);
+            return response.data as Comment;
+        } catch (error) {
+            console.error('Error fetching the comment: ', error);
             throw error;
         }
     }

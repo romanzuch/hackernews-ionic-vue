@@ -33,7 +33,7 @@
     <ion-list :inset="true">
         <ion-item v-for="story in props.stories" :key="story.id">
             <ion-nav-link router-direction="forward" :component="StoryPage" :component-props="{ story: story }">
-                <ion-label>{{ story.title }}</ion-label>
+                <ion-label v-html="story.title" />
                 <ion-icon :icon="chevronForward" />
             </ion-nav-link>
         </ion-item>

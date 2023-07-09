@@ -23,9 +23,16 @@ import '@ionic/vue/css/display.css';
 /* Theme variables */
 import './theme/variables.css';
 
+/* Components */
+import CommentView from '@/components/comment/CommentView.vue';
+
 const app = createApp(App)
-  .use(IonicVue)
-  .use(router);
+app.component(
+    'CommentView',
+    CommentView
+  );
+app.use(IonicVue)
+app.use(router);
   
 router.isReady().then(() => {
   app.mount('#app');
