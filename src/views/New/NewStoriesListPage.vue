@@ -57,4 +57,3 @@
   text-decoration: none;
 }
 </style>
-@/views/best/BestStoriesListPage.component
