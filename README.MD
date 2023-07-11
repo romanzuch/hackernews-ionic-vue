@@ -2,6 +2,21 @@
 
 This Hacker News client is written in VueJS using Ionic Capacitor.
 
+## Screenshots
+<div style="display:flex;">
+  <img src="https://github.com/romanzuch/hackernews-ionic-vue/blob/develop/screenshots/best.png" alt="best" width="400px" />
+  <img src="https://github.com/romanzuch/hackernews-ionic-vue/blob/develop/screenshots/new.png" alt="new" width="400px" />
+  <img src="https://github.com/romanzuch/hackernews-ionic-vue/blob/develop/screenshots/story.png" alt="story" width="400px" />
+</div>
+
+<div style="display:flex;">
+  <img src="https://github.com/romanzuch/hackernews-ionic-vue/blob/develop/screenshots/story_comments.png" alt="comments" width="400px" />
+  <img src="https://github.com/romanzuch/hackernews-ionic-vue/blob/develop/screenshots/story_comments_extended.png" alt="comments_extended" width="400px" />
+  <img src="https://github.com/romanzuch/hackernews-ionic-vue/blob/develop/screenshots/story_comments_extended_dark.png" alt="comments_extended_dark" width="400px" />
+</div>
+
+
+
 ## Set up
 
 Following the steps from [here](https://ionicframework.com/docs/vue/quickstart), you can set up a blank project. The following steps are solely for iOS.
