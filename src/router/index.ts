@@ -4,7 +4,7 @@ import { RouteRecordRaw } from 'vue-router';
 // Component Import
 import BestStoriesPage from '@/views/best/BestStoriesPage.vue';
 import NewStoriesPage from '@/views/new/NewStoriesPage.vue';
-import MorePage from '@/views/more/MorePage.vue';
+// import MorePage from '@/views/more/MorePage.vue';
 import TabBar from '@/components/tabbar/TabBar.vue';
 
 const routes: Array<RouteRecordRaw> = [
@@ -27,11 +27,11 @@ const routes: Array<RouteRecordRaw> = [
         name: 'new',
         component: NewStoriesPage
       },
-      {
-        path: '/more',
-        name: 'more',
-        component: MorePage
-      }
+      // {
+      //   path: '/more',
+      //   name: 'more',
+      //   component: MorePage
+      // }
     ]
   }
 ]

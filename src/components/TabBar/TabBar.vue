@@ -12,10 +12,10 @@
             <ion-icon :icon="newspaper"></ion-icon>
             <ion-label>New</ion-label>
           </ion-tab-button>
-          <ion-tab-button tab="more" href='more' :selected="$route.name === 'more'">
+          <!-- <ion-tab-button tab="more" href='more' :selected="$route.name === 'more'">
             <ion-icon :icon="reorderThree"></ion-icon>
             <ion-label>More</ion-label>
-          </ion-tab-button>
+          </ion-tab-button> -->
         </ion-tab-bar>
 
     </ion-tabs>
