@@ -4,15 +4,15 @@ This Hacker News client is written in VueJS using Ionic Capacitor.
 
 ## Screenshots
 <div style="display:flex;">
-  <img src="https://github.com/romanzuch/hackernews-ionic-vue/blob/develop/screenshots/best.png" alt="best" width="400px" />
-  <img src="https://github.com/romanzuch/hackernews-ionic-vue/blob/develop/screenshots/new.png" alt="new" width="400px" />
-  <img src="https://github.com/romanzuch/hackernews-ionic-vue/blob/develop/screenshots/story.png" alt="story" width="400px" />
+  <img src="https://github.com/romanzuch/hackernews-ionic-vue/blob/develop/screenshots/best.png" alt="best" width="30%" />
+  <img src="https://github.com/romanzuch/hackernews-ionic-vue/blob/develop/screenshots/new.png" alt="new" width="30%" />
+  <img src="https://github.com/romanzuch/hackernews-ionic-vue/blob/develop/screenshots/story.png" alt="story" width="30%" />
 </div>
 
 <div style="display:flex;">
-  <img src="https://github.com/romanzuch/hackernews-ionic-vue/blob/develop/screenshots/story_comments.png" alt="comments" width="400px" />
-  <img src="https://github.com/romanzuch/hackernews-ionic-vue/blob/develop/screenshots/story_comments_extended.png" alt="comments_extended" width="400px" />
-  <img src="https://github.com/romanzuch/hackernews-ionic-vue/blob/develop/screenshots/story_comments_extended_dark.png" alt="comments_extended_dark" width="400px" />
+  <img src="https://github.com/romanzuch/hackernews-ionic-vue/blob/develop/screenshots/story_comments.png" alt="comments" width="30%" />
+  <img src="https://github.com/romanzuch/hackernews-ionic-vue/blob/develop/screenshots/story_comments_extended.png" alt="comments_extended" width="30%" />
+  <img src="https://github.com/romanzuch/hackernews-ionic-vue/blob/develop/screenshots/story_comments_extended_dark.png" alt="comments_extended_dark" width="30%" />
 </div>
 
 
