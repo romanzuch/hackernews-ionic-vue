@@ -4,7 +4,7 @@ This Hacker News client is written in VueJS using Ionic Capacitor.
 
 ## Set up
 
-Following the steps from (here)[https://ionicframework.com/docs/vue/quickstart], you can set up a blank project. The following steps are solely for iOS.
+Following the steps from [here](https://ionicframework.com/docs/vue/quickstart), you can set up a blank project. The following steps are solely for iOS.
 
 ### 1. Install the latest version of Ionic CLI
 
@@ -28,7 +28,7 @@ xcode-select --install
 
 ### 4. Set up a development team and create a simulator
 
-(https://ionicframework.com/docs/developing/ios)[https://ionicframework.com/docs/developing/ios]
+[https://ionicframework.com/docs/developing/ios](https://ionicframework.com/docs/developing/ios)
 
 ### 5. Generate the native project and set the package ID
 
